@@ -1,0 +1,14 @@
+.modal 
+  @apply absolute z-0 flex items-center justify-center inset-0
+
+  &-overlay
+    @apply inset-0 bg-black/50 fixed
+
+  &-content
+    @apply z-10 flex flex-col gap-6 bg-white dark:bg-dark-gray rounded-lg shadow-lg p-8 lg:w-[480px] max-w-[480px]
+
+    &__title
+      @apply text-heading-lg font-bold
+
+    &__description
+      @apply text-body-lg text-gray

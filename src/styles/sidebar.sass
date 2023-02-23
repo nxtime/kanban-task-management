@@ -1,0 +1,15 @@
+.board-container
+  .board-item,
+  .board-item-new
+    @apply pl-8 flex gap-4 items-center h-12 rounded-r-full w-full transition-colors
+
+    &:hover
+      @apply bg-accent/25
+
+    &.active
+      @apply bg-accent text-white
+
+  .board-item-new
+    @apply text-accent
+    &:hover
+      @apply bg-accent/25

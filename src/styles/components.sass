@@ -1,0 +1,140 @@
+.btn
+  @apply rounded-full px-8 h-12 text-heading-md font-bold active:scale-95 transition-all
+
+  &-sm
+    @apply px-6 h-10 text-heading-sm
+
+  &-ghost
+    @apply bg-transparent text-accent hover:bg-accent/25
+
+  &-primary
+    @apply bg-accent text-white
+    &:hover
+      @apply bg-accent-hover
+
+  &-secondary
+    @apply bg-accent/10 text-accent 
+    &:hover
+      @apply bg-accent/25
+
+  &-danger
+    @apply bg-danger text-white
+    &:hover
+      @apply bg-danger-hover
+
+.checkbox-container
+  @apply p-3 rounded-lg bg-light-gray dark:bg-black-highlight flex gap-4 items-center hover:bg-accent/25 dark:hover:bg-accent/25 transition-colors
+
+  input[type="checkbox"]
+    appearance: none
+    @apply w-4 h-4
+
+    &::before
+      content: ''
+      background-position: center
+      background-size: 40%
+      @apply cursor-pointer absolute w-4 h-4 border border-lines-dark/25 rounded-sm transition-all duration-200 dark:bg-dark-gray/25
+
+    &:checked
+      &::before
+        background-image: url('/icons/check.svg')
+        background-size: 60%
+        background-position: center
+        background-repeat: no-repeat
+        @apply bg-accent border-none
+
+  label
+    @apply relative flex items-center text-body-md font-bold cursor-pointer transition-all
+    &::before
+      content: ''
+      @apply absolute left-0 w-0 h-[2px] rounded-full bg-transparent transition-all
+
+  &:has(input[type="checkbox"]:checked)
+    label
+      text-decoration-thickness: 2px
+      @apply line-through opacity-50
+      //&::before
+        // @apply w-full bg-black dark:bg-white
+
+.checkbox
+  appearance: none
+  width: 2.75rem
+  height: 1.375rem
+  display: flex
+  align-items: center
+  position: relative
+
+  &:before
+    content: ''
+    cursor: pointer
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    border-radius: 9999px
+    transition: all 0.2s ease
+    @apply bg-dark-gray
+  
+  &:after
+    content: ''
+    position: absolute
+    cursor: pointer 
+    // top: 0.15rem
+    left: 0.2rem
+    width: 1rem
+    height: 1rem
+    background: #fff
+    border-radius: 9999px
+    transition: all 0.2s ease
+
+  &:checked
+    &:before
+      @apply bg-accent
+    &:after
+      left: calc(100% - 0.2rem)
+      transform: translateX(-100%)
+
+.textfield
+  @relative flex flex-col gap-2 justify-center transition-all max-w-md
+  & > label
+    @apply text-body-md font-bold text-gray
+
+  & > input
+    @apply block w-full max-w-md h-12 px-4 rounded-md border border-lines-dark/25 text-body-lg font-medium text-gray dark:text-white/25 transition-colors dark:bg-dark-gray/25
+
+    &:focus,
+    &:not(:placeholder-shown)
+      @apply outline-none text-black dark:text-white/75
+        
+  &::before
+    content: ''
+    @apply bottom-4 -right-8 opacity-0 text-gray absolute w-fit h-fit text-body-md font-medium transition-all
+
+  &-error
+    @apply relative
+    & > input
+      @apply border-danger
+
+    &::before
+      content: attr(data-error)
+      @apply bottom-4 right-4 opacity-100 text-danger absolute w-fit h-fit text-body-md font-medium
+
+.select-btn
+  @apply relative w-full h-12 px-4 rounded-md border border-lines-dark/25 text-body-lg font-medium text-gray transition-colors flex items-center hover:border-accent active:border-accent active:outline-none
+
+  &::before
+    content: ''
+    background-image: url('/icons/dropdown.svg') 
+    background-position: center
+    background-repeat: no-repeat
+    @apply absolute right-2 w-8 h-8 hover:bg-accent/10 rounded-md flex items-center justify-center transition-all
+
+.select-container
+  @apply relative z-50 rounded-lg overflow-hidden bg-white dark:bg-black-highlight border border-lines-dark/25
+
+  & > * 
+    @apply text-body-lg first:rounded-t-md last:rounded-b-md h-12 w-full flex items-center px-4 border border-transparent hover:border-accent transition-colors
+
+    &.active
+      @apply bg-accent text-white
