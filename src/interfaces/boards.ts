@@ -11,7 +11,7 @@ interface IColumn {
 interface ITask {
   title: string,
   description: string,
-  status: "Todo" | "In Progress" | "Done" | "Blocked",
+  status: any,
   subtasks: ISubtask[]
 }
 

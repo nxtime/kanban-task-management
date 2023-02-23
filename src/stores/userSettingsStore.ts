@@ -11,7 +11,7 @@ export interface IUserSettingsStore {
 export const useUserSettingsStore = create(persist<IUserSettingsStore>((set) => ({
   darkMode: true,
   sidebardCollapsed: false,
-  toggleDarkMode: (darkMode) => set({ darkMode: darkMode ?? !this.darkMode }),
+  toggleDarkMode: (darkMode) => set((state) => ({ darkMode: darkMode ?? !state.darkMode })),
   setSidebardCollapsed: (sidebardCollapsed) => set({ sidebardCollapsed })
 }),
   {
